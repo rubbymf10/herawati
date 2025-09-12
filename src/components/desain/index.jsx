@@ -116,7 +116,7 @@ const DesainPage = forwardRef((props, ref) => {
     Manual: "Karya gambar dari masa kecil hingga kuliah.",
     "Hasil Kriya":
       "Kriya rancangan: aksesori, interior, pakaian, hingga Tugas Akhir.",
-    Moodboard: "Moodboard & desain digital dengan Canva (poster, katalog).",
+    Moodboard: "Kumpulan moodboard dan imageboard sebagai referensi   konsep, nuansa, warna, material, dan detail sebagai dasar pengembangan desain.",
     Pengalaman:
       "Pengalaman organisasi, qiroah, tutor, model, pameran seni, hingga KKN.",
     Grafis: "Grafis visual.",
