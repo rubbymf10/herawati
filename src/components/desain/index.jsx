@@ -112,14 +112,18 @@ const DesainPage = forwardRef((props, ref) => {
 
   // Subjudul menggunakan key yang konsisten dengan ID kategori
   const categorySubtitles = {
-    Digital: "Desain digital akademik & profesional dengan CorelDRAW.",
-    Manual: "Karya gambar dari masa kecil hingga kuliah.",
+    Digital:
+      "Desain digital akademik & profesional dengan CorelDRAW.",
+    Manual:
+      "Karya gambar dari masa kecil hingga kuliah.",
     "Hasil Kriya":
       "Kriya rancangan: aksesori, interior, pakaian, hingga Tugas Akhir.",
-    Moodboard: "Kumpulan moodboard dan imageboard sebagai referensi   konsep, nuansa, warna, material, dan detail sebagai dasar pengembangan desain.",
+    Moodboard:
+      "Referensi konsep, nuansa, warna, material, dan detail sebagai dasar pengembangan desain.",
     Pengalaman:
       "Pengalaman organisasi, qiroah, tutor, model, pameran seni, hingga KKN.",
-    Grafis: "Grafis visual.",
+    Grafis:
+      "Karya desain grafis berupa poster, katalog, dan visual digital yang dibuat menggunakan Canva.",
   };
 
 
