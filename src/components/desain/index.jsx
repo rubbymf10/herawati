@@ -79,7 +79,7 @@ const DesainPage = forwardRef((props, ref) => {
   const [moodboardDesigns, setMoodboardDesigns] = useState([]);
   const [pengalamanDesigns, setPengalamanDesigns] = useState([]);
   const [kriyaDesigns, setKriyaDesigns] = useState([]);
-  const [GrafisDesigns, setGrafisDesigns] = useState([]);
+  const [grafisDesigns, setGrafisDesigns] = useState([]);
 
   // Ambil data dari Cloudinary (tidak ada perubahan)
   useEffect(() => {
@@ -107,21 +107,16 @@ const DesainPage = forwardRef((props, ref) => {
     fetchDesigns("moodboard", setMoodboardDesigns);
     fetchDesigns("pengalaman", setPengalamanDesigns);
     fetchDesigns("kriya", setKriyaDesigns);
-    fetchDesigns("Grafis", setGrafisDesigns);
+    fetchDesigns("grafis", setGrafisDesigns);
+
   }, []);
 
   // Subjudul menggunakan key yang konsisten dengan ID kategori
   const categorySubtitles = {
     Digital:
-<<<<<<< HEAD
       "Desain digital akademik & profesional dengan CorelDRAW.",
     Manual:
       "Karya gambar dari masa kecil hingga kuliah.",
-=======
-    "Desain digital akademik & profesional dengan CorelDRAW.",
-    Manual:
-    "Karya gambar dari masa kecil hingga kuliah.",
->>>>>>> 5abed9c (penyesuaian)
     "Hasil Kriya":
       "Kriya rancangan: aksesori, interior, pakaian, hingga Tugas Akhir.",
     Moodboard:
@@ -147,9 +142,9 @@ const DesainPage = forwardRef((props, ref) => {
       break;
     case "Pengalaman":
       displayedDesigns = pengalamanDesigns;
-      break;
+      break; 
     case "Grafis":
-      displayedDesigns = GrafisDesigns;
+     displayedDesigns = grafisDesigns;
       break;
     case "Digital":
     default:
