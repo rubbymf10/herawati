@@ -58,7 +58,7 @@ export default function Footer() {
               <FaTiktok />
             </a>
             <a
-              href="https://www.tiktok.com/@hawakhadijah02?_t=ZS-8zbl8ecDpaB&_r=1"
+              href="https://www.behance.net/anaksahawat"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity"
