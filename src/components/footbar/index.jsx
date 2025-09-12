@@ -30,7 +30,7 @@ export default function Footer() {
               href="/"
               className={`${roboto_slab.className} text-xl font-bold tracking-wide`}
             >
-              Herawati
+              Herawati, S.Sn
             </a>
           </div>
 
