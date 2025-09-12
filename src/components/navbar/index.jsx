@@ -69,7 +69,7 @@ export default function Navbar({ onScrollToSection }) {
         }}
         className={`${roboto_slab.className} text-2xl font-bold tracking-wide`}
       >
-        Herawati
+        Herawati, S.Sn
       </a>
 
       {/* 4. Kirim fungsi ke MenuItems */}

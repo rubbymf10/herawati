@@ -155,7 +155,7 @@ export default function BiodataPage({ ref }) {
         {/* Kolom Kiri: Gambar */}
         <div className="w-full md:w-1/3 flex-shrink-0">
           <img
-            src="https://res.cloudinary.com/djxacnifu/image/upload/v1755070845/bio-pic_wg6lcm.jpg"
+            src="https://res.cloudinary.com/ddji1ygzq/image/upload/v1757648578/bio-pic_wg6lcm_vk8dct.jpg"
             alt="Foto profil Herawati"
             className="rounded-lg w-full object-cover aspect-[3/4] shadow-lg"
           />
