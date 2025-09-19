@@ -68,6 +68,7 @@ const DesainPage = forwardRef((props, ref) => {
     { id: "Moodboard", label: "Moodboard" },
     { id: "Pengalaman", label: "Pengalaman" },
     { id: "Grafis", label: "Grafis" },
+    { id: "Gambar", label: "Gambar" },
   ];
 
   const [activeCategory, setActiveCategory] = useState("Digital"); // State awal menggunakan ID
@@ -80,7 +81,7 @@ const DesainPage = forwardRef((props, ref) => {
   const [pengalamanDesigns, setPengalamanDesigns] = useState([]);
   const [kriyaDesigns, setKriyaDesigns] = useState([]);
   const [grafisDesigns, setGrafisDesigns] = useState([]);
-
+  const [gambarDesigns, setGambarDesigns] = useState([]);
   // Ambil data dari Cloudinary (tidak ada perubahan)
   useEffect(() => {
     const fetchDesigns = async (folder, setState) => {
@@ -108,7 +109,7 @@ const DesainPage = forwardRef((props, ref) => {
     fetchDesigns("pengalaman", setPengalamanDesigns);
     fetchDesigns("kriya", setKriyaDesigns);
     fetchDesigns("grafis", setGrafisDesigns);
-
+    fetchDesigns("gambar", setGambarDesigns);
   }, []);
 
   // Subjudul menggunakan key yang konsisten dengan ID kategori
@@ -125,6 +126,8 @@ const DesainPage = forwardRef((props, ref) => {
       "Pengalaman organisasi, qiroah, tutor, model, pameran seni, hingga KKN.",
     Grafis:
       "Karya desain grafis berupa poster, katalog, dan visual digital yang dibuat menggunakan Canva.",
+    Gambar:
+      "Rekap gambar.",
   };
 
 
@@ -145,6 +148,9 @@ const DesainPage = forwardRef((props, ref) => {
       break; 
     case "Grafis":
      displayedDesigns = grafisDesigns;
+      break;
+    case "Gambar":
+     displayedDesigns = gambarDesigns;
       break;
     case "Digital":
     default:
