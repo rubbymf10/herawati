@@ -12,6 +12,7 @@ import HomePage from "@/components/home";
 import Navbar from "@/components/navbar";
 import OrganisasiPage from "@/components/organizations";
 import PengalamanKerjaPage from "@/components/works";
+import IlmiahPage from "@/components/scientificWorks";
 
 export default function Home() {
   // 1. Buat satu useRef untuk setiap section
@@ -21,6 +22,7 @@ export default function Home() {
   const certificateRef = useRef(null);
   const organisasiRef = useRef(null);
   const kerjaRef = useRef(null);
+  const ilmiahRef = useRef(null);
 
   // 2. Buat fungsi untuk menangani scroll
   const handleScrollToSection = (sectionId) => {
@@ -31,6 +33,7 @@ export default function Home() {
       sertifikat: certificateRef,
       organisasi: organisasiRef,
       kerja: kerjaRef,
+      ilmiah: ilmiahRef,
     };
 
     const ref = sectionRefs[sectionId];
@@ -51,7 +54,7 @@ export default function Home() {
       <CertificatePage ref={certificateRef} />
       <OrganisasiPage ref={organisasiRef} />
       <PengalamanKerjaPage ref={kerjaRef} />
-
+      <IlmiahPage ref={ilmiahRef} /> 
       <Footer />
     </>
   );
