@@ -46,6 +46,9 @@ const MenuItems = ({ isMobile = false, onScroll, closeDrawer = () => {} }) => {
       <button onClick={() => handleClick("kerja")} className={linkClass}>
         Kerja
       </button>
+      <button onClick={() => handleClick("ilmiah")} className={linkClass}>
+        Karya Ilmiah
+      </button>
     </div>
   );
 };
