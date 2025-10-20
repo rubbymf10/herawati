@@ -63,6 +63,7 @@ const DesainPage = forwardRef((props, ref) => {
   // --- DATA KATEGORI (SUMBER KEBENARAN TUNGGAL) ---
   const categories = [
     { id: "Digital", label: "Desain Digital" },
+    { id: "Scraf", label: "Scraf dan Motif" },
     { id: "Manual", label: "Desain Manual" },
     { id: "Hasil Kriya", label: "Hasil Kriya" },
     { id: "Moodboard", label: "Moodboard" },
@@ -76,13 +77,15 @@ const DesainPage = forwardRef((props, ref) => {
   const [itemsPerPage] = useState(12);
 
   const [designDigital, setDesignDigital] = useState([]);
+  const [designScraf, setDesignScraf] = useState([]);
   const [designManual, setDesignManual] = useState([]);
   const [moodboardDesigns, setMoodboardDesigns] = useState([]);
   const [pengalamanDesigns, setPengalamanDesigns] = useState([]);
   const [kriyaDesigns, setKriyaDesigns] = useState([]);
   const [grafisDesigns, setGrafisDesigns] = useState([]);
   const [gambarDesigns, setGambarDesigns] = useState([]);
-  // Ambil data dari Cloudinary (tidak ada perubahan)
+
+  // Ambil data dari Cloudinary (diperbaiki: pastikan setState yang benar untuk setiap folder)
   useEffect(() => {
     const fetchDesigns = async (folder, setState) => {
       try {
@@ -104,6 +107,7 @@ const DesainPage = forwardRef((props, ref) => {
     };
 
     fetchDesigns("digital", setDesignDigital);
+    fetchDesigns("scraf", setDesignScraf); // Diperbaiki: gunakan setDesignScraf, bukan setDesignDigital
     fetchDesigns("manual", setDesignManual);
     fetchDesigns("moodboard", setMoodboardDesigns);
     fetchDesigns("pengalaman", setPengalamanDesigns);
@@ -116,6 +120,8 @@ const DesainPage = forwardRef((props, ref) => {
   const categorySubtitles = {
     Digital:
       "Desain digital akademik & profesional dengan CorelDRAW.",
+    Scraf:
+      "Desain motif dan scraf batik karya saya.",
     Manual:
       "Karya gambar dari masa kecil hingga kuliah.",
     "Hasil Kriya":
@@ -130,10 +136,15 @@ const DesainPage = forwardRef((props, ref) => {
       "Rekap gambar.",
   };
 
-
-  // Logika switch sekarang bekerja dengan benar
+  // Logika switch diperbaiki: gunakan variable state yang benar dan tambah break di setiap case
   let displayedDesigns = []; // Inisialisasi sebagai array kosong
   switch (activeCategory) {
+    case "Digital":
+      displayedDesigns = designDigital;
+      break;
+    case "Scraf":
+      displayedDesigns = designScraf; // Diperbaiki: gunakan designScraf, bukan scrafDesigns
+      break;
     case "Manual":
       displayedDesigns = designManual;
       break;
@@ -145,14 +156,13 @@ const DesainPage = forwardRef((props, ref) => {
       break;
     case "Pengalaman":
       displayedDesigns = pengalamanDesigns;
-      break; 
+      break;
     case "Grafis":
-     displayedDesigns = grafisDesigns;
+      displayedDesigns = grafisDesigns;
       break;
     case "Gambar":
-     displayedDesigns = gambarDesigns;
-      break;
-    case "Digital":
+      displayedDesigns = gambarDesigns;
+      break; // Ditambah: break untuk mencegah jatuh ke case berikutnya
     default:
       displayedDesigns = designDigital;
       break;
