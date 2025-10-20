@@ -69,7 +69,7 @@ const DesainPage = forwardRef((props, ref) => {
     { id: "Pengalaman", label: "Pengalaman" },
     { id: "Grafis", label: "Grafis" },
     { id: "Gambar", label: "Gambar" },
-    { id: "Scraf dan Motif", label: "Scraf dan Motif" },
+    { id: "Scraf", label: "Scraf" },
   ];
 
   const [activeCategory, setActiveCategory] = useState("Digital"); // State awal menggunakan ID
@@ -112,7 +112,7 @@ const DesainPage = forwardRef((props, ref) => {
     fetchDesigns("kriya", setKriyaDesigns);
     fetchDesigns("grafis", setGrafisDesigns);
     fetchDesigns("gambar", setGambarDesigns);
-    fetchDesigns("Scraf dan Motif", setGambarDesigns);
+    fetchDesigns("Scraf", setScraftDesigns);
   }, []);
 
   // Subjudul menggunakan key yang konsisten dengan ID kategori
@@ -160,7 +160,7 @@ const DesainPage = forwardRef((props, ref) => {
     case "Digital":
       displayedDesigns = designDigital;
       break;
-    case "Scraf dan Motif":
+    case "Scraf":
     default:
       displayedDesigns = scrafDigital;
       break;
