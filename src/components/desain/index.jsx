@@ -85,7 +85,7 @@ const DesainPage = forwardRef((props, ref) => {
   const [grafisDesigns, setGrafisDesigns] = useState([]);
   const [gambarDesigns, setGambarDesigns] = useState([]);
 
-  // Ambil data dari Cloudinary (diperbaiki: pastikan setState yang benar untuk setiap folder)
+  // Ambil data dari Cloudinary (diperbaiki: pastikan setState yang benar untuk setiap folder, dan tambah sorting berdasarkan created_at ascending)
   useEffect(() => {
     const fetchDesigns = async (folder, setState) => {
       try {
@@ -93,7 +93,11 @@ const DesainPage = forwardRef((props, ref) => {
           `/api/get-images?folder=images/designs/${folder}`
         );
         const data = await res.json();
-        const mapped = data.map((item, idx) => ({
+        
+        // Sort berdasarkan created_at ascending (tertua dulu, foto baru di akhir)
+        const sortedData = data.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+        
+        const mapped = sortedData.map((item, idx) => ({
           id: `${folder}-${idx}`, // Memberikan key yang lebih unik
           src: item.secure_url,
           alt: item.public_id.split("/").pop(),
@@ -107,7 +111,7 @@ const DesainPage = forwardRef((props, ref) => {
     };
 
     fetchDesigns("digital", setDesignDigital);
-    fetchDesigns("scraf", setDesignScraf); // Diperbaiki: gunakan setDesignScraf, bukan setDesignDigital
+    fetchDesigns("scraf", setDesignScraf); // Diperbaiki: gunakan setDesignScraf
     fetchDesigns("manual", setDesignManual);
     fetchDesigns("moodboard", setMoodboardDesigns);
     fetchDesigns("pengalaman", setPengalamanDesigns);
@@ -143,7 +147,7 @@ const DesainPage = forwardRef((props, ref) => {
       displayedDesigns = designDigital;
       break;
     case "Scraf":
-      displayedDesigns = designScraf; // Diperbaiki: gunakan designScraf, bukan scrafDesigns
+      displayedDesigns = designScraf; // Diperbaiki: gunakan designScraf
       break;
     case "Manual":
       displayedDesigns = designManual;
